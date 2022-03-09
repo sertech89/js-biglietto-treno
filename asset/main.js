@@ -40,9 +40,18 @@ console.log(`Prezzo Biglietto:` + prezzoBiglietto + `€`);
 // 3)
 
 
-if (anniUtente < 18){
-    prezzofinale = prezzofinale - prezzofinale * 20/100;
+if (etaUtente < 18){
+    const scontoMinino = prezzoBiglietto * 0.20
+    const prezzoSconto = Math.floor (prezzoBiglietto - scontoMinino);
+    console.log(`Prezzo Scontato:` + prezzoSconto + `€`);
+}else if (etaUtente >=65 ){
+    const scontoMassimo = prezzoBiglietto * 0.40
+    const prezzoScontoMassimo = Math.floor (prezzoBiglietto - scontoMassimo);
+    console.log(`Prezzo Scontato:` + prezzoScontoMassimo + `€`);
+}else{
+    console.log(`Prezzo Finale:` + prezzoBiglietto + `€`);
 }
-else if (anniUtente >= 65){
-    prezzofinale = prezzofinale - prezzofinale * 40/100;
-}
+
+
+
+
