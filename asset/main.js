@@ -5,10 +5,7 @@
 // il prezzo del biglietto è definito in base ai km (0.21 € al km)
 //     3) calcolare i km richiesti per 0.21
 // va applicato uno sconto del 20% per i minorenni
-  
-   
-
-// va applicato uno sconto del 20% per i minorenni va applicato uno sconto del 40% per gli over 65.
+// va applicato uno sconto del 40% per gli over 65.
 //     4) condizione IF per sapere se è minorenne e applicare nel caso TRUE 20% di sconto
 // va applicato uno sconto del 40% per gli over 65
 //     5) condizione IF per sapere se è over 65 e applicare nel caso TRUE 40% di sconto    
@@ -20,23 +17,32 @@
 
 
 
+
+// 1)
+
 const kmUtente = prompt("Quanti km farai?");
 console.log("kmUtente");
-document.getElementById("contenitore_target").innerHTML = kmUtente;
-
+// document.getElementById("contenitore_target").innerHTML = kmUtente;
 
 
 
 const etaUtente = prompt("Inserisci la tua età");
 console.log("anniUtente");
-document.getElementById("contenitore_target2").innerHTML = etaUtente;
+// document.getElementById("contenitore_target2").innerHTML = etaUtente;
 
 
+// 2)
 
-// kmUtente * 0.21
+const prezzoBiglietto = kmUtente * 0.21;
+console.log(`Prezzo Biglietto:` + prezzoBiglietto + `€`);
 
-// if (etaUtente < 18) {
 
-// } else {
+// 3)
 
-// }
+
+if (anniUtente < 18){
+    prezzofinale = prezzofinale - prezzofinale * 20/100;
+}
+else if (anniUtente >= 65){
+    prezzofinale = prezzofinale - prezzofinale * 40/100;
+}
