@@ -20,37 +20,55 @@
 
 // 1)
 
-const kmUtente = prompt("Quanti km farai?");
-console.log("kmUtente");
-// document.getElementById("contenitore_target").innerHTML = kmUtente;
+
+// VERSIONE ABBREVIATA
+
+
+const kilometriAbbreviata = Number( prompt("Quanti km farai?"));
+console.log(kilometriAbbreviata);
+document.getElementById("kilometri").innerHTML = `<h2> i kilometri da percorrere sono: ${kilometriAbbreviata} </h2>` 
 
 
 
-const etaUtente = prompt("Inserisci la tua età");
-console.log("anniUtente");
-// document.getElementById("contenitore_target2").innerHTML = etaUtente;
+// VERSIONE ABBREVIATA (ma con il prompt "eta")
+
 
 
 // 2)
 
-const prezzoBiglietto = kmUtente * 0.21;
-console.log(`Prezzo Biglietto:` + prezzoBiglietto + `€`);
+const etaUtenteAbbreviata = Number( prompt("Inserisci la tua età") );
+console.log( etaUtenteAbbreviata );
+document.getElementById("eta").innerHTML = `<h2>l'età del passeggero è: ${etaUtenteAbbreviata} </h2>`
+
+
 
 
 // 3)
 
+let tassa = 0.21;
+let prezzo = tassa * kilometriAbbreviata;
+console.log(prezzo);
+document.getElementById("prezzo").innerHTML = `<h2>il prezzo del biglietto di base è ${prezzo} €</h2>`
 
-if (etaUtente < 18){
-    const scontoMinino = prezzoBiglietto * 0.20
-    const prezzoSconto = Math.floor (prezzoBiglietto - scontoMinino);
-    console.log(`Prezzo Scontato:` + prezzoSconto + `€`);
-}else if (etaUtente >=65 ){
-    const scontoMassimo = prezzoBiglietto * 0.40
-    const prezzoScontoMassimo = Math.floor (prezzoBiglietto - scontoMassimo);
-    console.log(`Prezzo Scontato:` + prezzoScontoMassimo + `€`);
+
+
+
+// 4)
+
+
+if (etaUtenteAbbreviata < 18){
+    prezzo = prezzo * 0.80;
+    console.log(prezzo);
+    document.getElementById("prezzoSeScontato").innerHTML = `<p>il prezzo del biglietto per minorenni è: ${prezzo.toFixed(2)} €</p>`
+}else if (etaUtenteAbbreviata >= 65 ){
+    prezzo = prezzo * 0.60;
+    console.log(prezzo);
+    document.getElementById("prezzoSeScontato").innerHTML = `<p>il prezzo del biglietto per over 65 è: ${prezzo.toFixed(2)} €</p>`
 }else{
-    console.log(`Prezzo Finale:` + prezzoBiglietto + `€`);
+    document.getElementById("prezzoSeScontato").innerHTML = `<p>il prezzo del biglietto base è: ${prezzo.toFixed(2)} €</p>`
 }
+
+
 
 
 
